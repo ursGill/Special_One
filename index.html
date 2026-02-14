@@ -186,6 +186,7 @@
     }
 </style>
 </head>
+   
 <body>
 
 <div class="container" id="questionBox">
@@ -294,6 +295,9 @@ if (nameFromURL) {
 
     /* Yes Button */
     yesBtn.addEventListener('click', () => {
+       const music = document.getElementById('bgMusic');
+    music.volume = 0.6;
+    music.play().catch(() => {});
         document.getElementById('questionBox').style.display = 'none';
         noBtn.style.display = 'none';
         heartsActive = false;
@@ -317,6 +321,10 @@ if (nameFromURL) {
         }
     });
 </script>
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+</audio>
 
 </body>
 </html>
