@@ -190,7 +190,7 @@
 
 <div class="container" id="questionBox">
     <div class="bear">🧸</div>
-    <h1>Will You Be My Valentine, [NAME]?</h1>
+    <h1>Will You Be My Valentine,<span id="valName">My Love</span>?</h1>
     <div class="subtitle">I've been gathering courage to ask you this...</div>
     <div class="closing">
         Every love story is beautiful, but ours is my favourite
@@ -212,6 +212,14 @@
     /* Floating Hearts */
     const heartCount = 15;
     let heartsActive = true;
+    const params = new URLSearchParams(window.location.search);
+const nameFromURL = params.get("name");
+
+if (nameFromURL) {
+    const safeName = nameFromURL.replace(/[^a-zA-Z\s]/g, "");
+    document.getElementById("valName").textContent = safeName;
+}
+
 
     function createHeart() {
         if (!heartsActive) return;
